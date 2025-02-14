@@ -3,9 +3,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #673ab7, #512da8);
+    background: linear-gradient(to right, #ffc3a0, #ffafbd);
   }
-  
+  mat-card-title {
+    margin-bottom: 16px;
+  }
   mat-card {
     padding: 30px;
     width: 350px;
