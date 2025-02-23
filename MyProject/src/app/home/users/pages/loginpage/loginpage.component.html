@@ -4,9 +4,9 @@
       <form [formGroup]="Form" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email" type="email">
-          <mat-error *ngIf="email?.hasError('required')">Email is required</mat-error>
-          <mat-error *ngIf="email?.hasError('email')">Enter a valid email</mat-error>
+          <input matInput formControlName="username" type="email">
+          <mat-error *ngIf="username?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="username?.hasError('email')">Enter a valid email</mat-error>
         </mat-form-field>
   
         <mat-form-field appearance="outline">
