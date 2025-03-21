@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginpageComponent {
   Form: FormGroup;
 
-  constructor(private fb: FormBuilder, private UserService: UserService, private router: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.Form = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -27,12 +27,30 @@ export class LoginpageComponent {
     return this.Form.get('password');
   }
 
+  message = '';
   onSubmit() {
-    const { username, password } = this.Form.value;
-    if(this.UserService.validate(username, password)){
-      this.router.navigate(['/home/detail'])
-    } else {
-      console.log('error')
-    }
+
+    this.userService.userLogin(this.Form.value).subscribe({
+      next: (data) => {
+        if (data?.user) {
+          this.router.navigate(['/home/dashboard']);
+          this.message = ''; 
+        }
+      },
+      error: (err) => {
+        if (err.status === 401) {
+          this.message = 'Invalid username or password.';
+        } else {
+          this.message = 'Something went wrong. Please try again.';
+        }
+      }
+    });
+
+    // const { username, password } = this.Form.value;
+    // if(this.UserService.validate(username, password)){
+    //   this.router.navigate(['/home/detail'])
+    // } else {
+    //   console.log('error')
+    // }
   }
 }

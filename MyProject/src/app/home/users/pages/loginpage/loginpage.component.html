@@ -1,6 +1,7 @@
 <div class="login-container">
     <mat-card>
       <mat-card-title>Login</mat-card-title>
+      <p class="message" *ngIf="message">{{message}}</p>
       <form [formGroup]="Form" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>

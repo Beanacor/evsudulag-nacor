@@ -5,11 +5,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeMaterialModule } from './home-material.module';
 import { HomeRoutesModule } from './home-routes.module';
 import { DetailComponent } from './pages/detail/detail.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 
 @NgModule({
-  declarations: [LoginpageComponent, DetailComponent],
+  declarations: [LoginpageComponent, DetailComponent, DashboardComponent],
   imports: [
     CommonModule,
     HomeRoutesModule,
